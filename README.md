@@ -25,7 +25,7 @@ A modern, responsive portfolio website showcasing full-stack development project
 
 ## Project Structure
 
-```
+```text
 src/
   assets/          # Images and static assets
   components/      # React components by feature
@@ -134,5 +134,8 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Contact
 
+- **Email:** [youssefbenyamine2eme@gmail.com](mailto:youssefbenyamine2eme@gmail.com)
+- **Phone:** +20 128 458 4675
 - **GitHub:** [@YB122](https://github.com/YB122)
-- **Portfolio:** [Live Demo](https://portfolio-youssef.vercel.app)
+- **LinkedIn:** [Youssef Benyamine](https://www.linkedin.com/in/youssef-benyamine-b55a81219/)
+- **Portfolio:** [Live Demo](https://youssef-portfolio-chi.vercel.app/)
