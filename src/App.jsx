@@ -32,7 +32,37 @@ function App() {
   return (
     <>
       <RouterProvider router={routes} />
-      <Toaster position="top-center" />
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          style: {
+            background: "#1f1f1f",
+            color: "#ffffff",
+            border: "1px solid #333",
+            borderRadius: "0.5rem",
+            padding: "12px 16px",
+            fontSize: "0.9rem",
+          },
+          success: {
+            iconTheme: {
+              primary: "#FF6B35",
+              secondary: "#ffffff",
+            },
+            style: {
+              border: "1px solid rgba(255, 107, 53, 0.3)",
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: "#ef4444",
+              secondary: "#ffffff",
+            },
+            style: {
+              border: "1px solid rgba(239, 68, 68, 0.3)",
+            },
+          },
+        }}
+      />
     </>
   );
 }

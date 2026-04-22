@@ -1,0 +1,284 @@
+/* Section animations */
+.sectionFadeIn {
+  animation: fadeIn 1s ease-out;
+}
+
+/* Title animations */
+.titleSlideIn {
+  animation: titleSlideIn 1s ease-out;
+}
+
+.subtitleFadeIn {
+  animation: subtitleFadeIn 1s ease-out 0.3s both;
+}
+
+/* Form animations */
+.formSlideIn {
+  animation: formSlideIn 1s ease-out 0.5s both;
+}
+
+/* Field animations */
+.fieldSlideIn {
+  animation: fieldSlideIn 0.6s ease-out;
+}
+
+/* Button animations */
+.buttonSlideIn {
+  animation: buttonSlideIn 1s ease-out 0.8s both;
+}
+
+.buttonPulse {
+  animation: buttonPulse 2s ease-in-out infinite;
+}
+
+/* Stagger animation delays for form fields */
+.delay-100 {
+  animation-delay: 0.1s;
+  animation-fill-mode: both;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+  animation-fill-mode: both;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+  animation-fill-mode: both;
+}
+
+/* Input animations */
+.inputFocus {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.inputFocus:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 0, 0.15);
+}
+
+/* Button hover effects */
+.buttonHover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.buttonHover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 107, 0, 0.3);
+}
+
+/* Form container animation */
+.formContainer {
+  animation: formContainerReveal 1s ease-out;
+}
+
+/* Loading animation */
+.loadingSpin {
+  animation: loadingSpin 1s linear infinite;
+}
+
+/* Success animation */
+.successBounce {
+  animation: successBounce 0.6s ease-out;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes titleSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes subtitleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes formSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fieldSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes buttonSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes buttonPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes formContainerReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes loadingSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes successBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Gradient background animation */
+.gradientShift {
+  background: linear-gradient(135deg, #1f1f1f 0%, #2a2a2a 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Input label animation */
+.labelFloat {
+  transition: all 0.3s ease;
+}
+
+.inputFocus:focus + .labelFloat,
+.inputFocus:not(:placeholder-shown) + .labelFloat {
+  transform: translateY(-25px) scale(0.85);
+  color: #ff6b35;
+}
+
+/* Error shake animation */
+.errorShake {
+  animation: errorShake 0.5s ease-in-out;
+}
+
+@keyframes errorShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+/* Submit button loading state */
+.submitButtonLoading {
+  position: relative;
+  color: transparent;
+}
+
+.submitButtonLoading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: loadingSpin 0.8s linear infinite;
+}

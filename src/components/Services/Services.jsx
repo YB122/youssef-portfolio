@@ -1,4 +1,5 @@
 import { services } from "../../data/services";
+import styles from "./Services.module.css";
 
 const IconFrontend = () => (
   <svg
@@ -200,11 +201,17 @@ const iconMap = {
 
 export default function Services() {
   return (
-    <section className="py-20 bg-[#1a1a1a]">
+    <section className={`py-20 bg-[#1a1a1a] ${styles.sectionFadeIn}`}>
       <div className="max-w-7xl mx-auto px-5">
         <div className="text-center mb-12">
-          <h2 className="text-white text-3xl font-bold mb-4">Services</h2>
-          <p className="text-[#888] text-sm max-w-xl mx-auto">
+          <h2
+            className={`text-white text-3xl font-bold mb-4 ${styles.titleFadeIn}`}
+          >
+            Services
+          </h2>
+          <p
+            className={`text-[#888] text-sm max-w-xl mx-auto ${styles.subtitleFadeIn}`}
+          >
             I provide comprehensive web development solutions tailored to your
             needs, from building modern user interfaces to designing robust
             backend systems.
@@ -212,22 +219,29 @@ export default function Services() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => {
+          {services.map((service, index) => {
             const IconComponent = iconMap[service.icon];
+            const delayClass = `delay-${(index + 1) * 100}`;
             return (
               <div
                 key={service.id}
-                className="bg-[#2a2a2a] rounded-xl p-8 text-center transition-all duration-300 hover:bg-[#333] group"
+                className={`bg-[#2a2a2a] rounded-xl p-8 text-center ${styles.serviceCard} ${styles.slideInUp} ${styles.glowOnHover} ${styles[delayClass]}`}
               >
                 <div className="flex justify-center mb-4">
-                  <div className="transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-6">
+                  <div
+                    className={`${styles.iconContainer} ${styles.iconBounce}`}
+                  >
                     <IconComponent />
                   </div>
                 </div>
-                <h3 className="text-orange-500 font-semibold mb-3">
+                <h3
+                  className={`text-orange-500 font-semibold mb-3 ${styles.textReveal}`}
+                >
                   {service.title}
                 </h3>
-                <p className="text-[#888] text-sm leading-relaxed">
+                <p
+                  className={`text-[#888] text-sm leading-relaxed ${styles.textReveal}`}
+                >
                   {service.description}
                 </p>
               </div>

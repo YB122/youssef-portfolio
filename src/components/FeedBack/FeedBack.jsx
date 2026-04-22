@@ -51,14 +51,11 @@ export default function FeedBack() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post(
-        import.meta.env.VITE_API_URL,
-        {
-          name: data.name,
-          message: data.message,
-          rating: +data.rating,
-        },
-      );
+      const response = await axios.post(import.meta.env.VITE_API_URL, {
+        name: data.name,
+        message: data.message,
+        rating: +data.rating,
+      });
       console.log("API response:", response);
       const responseData = response.data;
       // Handle different API response structures
@@ -105,12 +102,16 @@ export default function FeedBack() {
     <section className={styles.feedbackSection} id="feedback">
       <div className={styles.container}>
         {/* Header */}
-        <div className={styles.header}>
-          <h2 className={styles.title}>What People Say</h2>
-          <p className={styles.subtitle}>Feedback from clients and visitors</p>
+        <div className={`${styles.header} ${styles.headerSlideIn}`}>
+          <h2 className={`${styles.title} ${styles.titleSlideIn}`}>
+            What People Say
+          </h2>
+          <p className={`${styles.subtitle} ${styles.subtitleSlideIn}`}>
+            Feedback from clients and visitors
+          </p>
           <button
             onClick={() => setIsModalOpen(true)}
-            className={styles.addButton}
+            className={`${styles.addButton} ${styles.addButtonHover} ${styles.buttonSlideIn}`}
           >
             <i className="fas fa-plus"></i>
             Add Your Feedback
@@ -118,20 +119,20 @@ export default function FeedBack() {
         </div>
 
         {/* Feedback List */}
-        <div className={styles.feedbackList}>
+        <div className={`${styles.feedbackList} ${styles.feedbackListSlideIn}`}>
           {feedbacks.length === 0 ? (
-            <div className={styles.emptyState}>
+            <div className={`${styles.emptyState} ${styles.emptyStateBounce}`}>
               <i className="fas fa-comments"></i>
               <p>No feedback yet. Be the first to share your thoughts!</p>
             </div>
           ) : (
-            feedbacks.map((item) => (
+            feedbacks.map((item, index) => (
               <div
                 key={item.id || Math.random()}
-                className={styles.feedbackCard}
+                className={`${styles.feedbackCard} ${styles.feedbackCardHover} ${styles.feedbackCardSlideIn} ${styles[`delay-${(index + 1) * 100}`]}`}
               >
                 <div className={styles.cardHeader}>
-                  <div className={styles.avatar}>
+                  <div className={`${styles.avatar} ${styles.avatarBounce}`}>
                     {(item.name || "?").charAt(0).toUpperCase()}
                   </div>
                   <div className={styles.meta}>
@@ -140,7 +141,7 @@ export default function FeedBack() {
                       {formatDate(item.createdAt || item.date)}
                     </span>
                   </div>
-                  <div className={styles.stars}>
+                  <div className={`${styles.stars} ${styles.starPulse}`}>
                     {renderStars(item.rating || 0)}
                   </div>
                 </div>
@@ -153,10 +154,13 @@ export default function FeedBack() {
         {/* Modal */}
         {isModalOpen && (
           <div
-            className={styles.modalOverlay}
+            className={`${styles.modalOverlay} ${styles.overlayFadeIn}`}
             onClick={() => setIsModalOpen(false)}
           >
-            <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+            <div
+              className={`${styles.modal} ${styles.modalSlideIn}`}
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className={styles.modalHeader}>
                 <h3>Share Your Feedback</h3>
                 <button
@@ -168,7 +172,9 @@ export default function FeedBack() {
               </div>
 
               <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-                <div className={styles.field}>
+                <div
+                  className={`${styles.field} ${styles.fieldSlideIn} ${styles.delay100}`}
+                >
                   <label className={styles.label} htmlFor="name">
                     Your Name
                   </label>
@@ -176,14 +182,16 @@ export default function FeedBack() {
                     {...register("name")}
                     type="text"
                     placeholder="Enter your name"
-                    className={styles.input}
+                    className={`${styles.input} ${styles.inputFocus}`}
                   />
                   {errors.name && (
                     <p className={styles.error}>{errors.name.message}</p>
                   )}
                 </div>
 
-                <div className={styles.field}>
+                <div
+                  className={`${styles.field} ${styles.fieldSlideIn} ${styles.delay200}`}
+                >
                   <label className={styles.label} htmlFor="rating">
                     Rating
                   </label>
@@ -199,7 +207,7 @@ export default function FeedBack() {
                           };
                           register("rating").onChange(event);
                         }}
-                        className={styles.starButton}
+                        className={`${styles.starButton} ${styles.starButtonHover}`}
                         aria-label={`${star} star${star > 1 ? "s" : ""}`}
                       >
                         <i
@@ -218,7 +226,9 @@ export default function FeedBack() {
                   )}
                 </div>
 
-                <div className={styles.field}>
+                <div
+                  className={`${styles.field} ${styles.fieldSlideIn} ${styles.delay300}`}
+                >
                   <label className={styles.label} htmlFor="message">
                     Your Message
                   </label>
@@ -226,22 +236,25 @@ export default function FeedBack() {
                     {...register("message")}
                     placeholder="Share your experience..."
                     rows={4}
-                    className={styles.textarea}
+                    className={`${styles.textarea} ${styles.inputFocus}`}
                   />
                   {errors.message && (
                     <p className={styles.error}>{errors.message.message}</p>
                   )}
                 </div>
 
-                <div className={styles.modalActions}>
+                <div className={`${styles.modalActions} ${styles.delay400}`}>
                   <button
                     type="button"
                     onClick={() => setIsModalOpen(false)}
-                    className={styles.cancelButton}
+                    className={`${styles.cancelButton} ${styles.buttonHover}`}
                   >
                     Cancel
                   </button>
-                  <button type="submit" className={styles.submitButton}>
+                  <button
+                    type="submit"
+                    className={`${styles.submitButton} ${styles.buttonHover}`}
+                  >
                     Submit Feedback
                   </button>
                 </div>

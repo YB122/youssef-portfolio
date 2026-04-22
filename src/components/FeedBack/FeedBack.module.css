@@ -2,6 +2,289 @@
   padding: 5rem 0;
   background-color: #1a1a1a;
   min-height: 100vh;
+  animation: sectionFadeIn 1s ease-out;
+}
+
+/* Section animations */
+.sectionFadeIn {
+  animation: fadeIn 1s ease-out;
+}
+
+/* Header animations */
+.headerSlideIn {
+  animation: headerSlideIn 1s ease-out;
+}
+
+.titleSlideIn {
+  animation: titleSlideIn 1s ease-out;
+}
+
+.subtitleSlideIn {
+  animation: subtitleSlideIn 1s ease-out 0.3s both;
+}
+
+.buttonSlideIn {
+  animation: buttonSlideIn 1s ease-out 0.5s both;
+}
+
+/* Feedback list animations */
+.feedbackListSlideIn {
+  animation: feedbackListSlideIn 1s ease-out 0.7s both;
+}
+
+/* Feedback card animations */
+.feedbackCardSlideIn {
+  animation: feedbackCardSlideIn 0.6s ease-out;
+}
+
+/* Stagger animation delays */
+.delay-100 {
+  animation-delay: 0.1s;
+  animation-fill-mode: both;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+  animation-fill-mode: both;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+  animation-fill-mode: both;
+}
+
+/* Enhanced hover effects */
+.feedbackCardHover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feedbackCardHover:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(255, 107, 53, 0.15);
+  border-color: rgba(255, 107, 53, 0.5);
+}
+
+/* Avatar animations */
+.avatarBounce {
+  animation: avatarBounce 2s ease-in-out infinite;
+}
+
+/* Star animations */
+.starPulse {
+  animation: starPulse 2s ease-in-out infinite;
+}
+
+/* Button enhanced animations */
+.addButtonHover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.addButtonHover:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+}
+
+/* Modal enhanced animations */
+.modalSlideIn {
+  animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlayFadeIn {
+  animation: overlayFadeIn 0.3s ease-out;
+}
+
+/* Form field animations */
+.fieldSlideIn {
+  animation: fieldSlideIn 0.5s ease-out;
+}
+
+.inputFocus {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.inputFocus:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 0, 0.15);
+}
+
+/* Star rating animations */
+.starButtonHover {
+  transition: all 0.2s ease;
+}
+
+.starButtonHover:hover {
+  transform: scale(1.3) rotate(10deg);
+}
+
+/* Empty state animations */
+.emptyStateBounce {
+  animation: emptyStateBounce 2s ease-in-out infinite;
+}
+
+/* Keyframes */
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes headerSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes titleSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes subtitleSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes buttonSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes feedbackListSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes feedbackCardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes avatarBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes starPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fieldSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes emptyStateBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
 
 .container {

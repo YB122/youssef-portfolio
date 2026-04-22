@@ -4,6 +4,7 @@ import * as z from "zod";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
+import styles from "./Contact.module.css";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -71,26 +72,38 @@ export default function Contact() {
   };
 
   return (
-    <section className="py-20 bg-[#1a1a1a]" id="contact">
+    <section
+      className={`py-20 bg-[#1a1a1a] ${styles.sectionFadeIn}`}
+      id="contact"
+    >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-lg p-6 sm:p-10 bg-[#1f1f1f]">
+        <div
+          className={`rounded-lg p-6 sm:p-10 bg-[#1f1f1f] ${styles.formContainer} ${styles.gradientShift}`}
+        >
           <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2
+              className={`text-3xl sm:text-4xl font-bold text-white mb-4 ${styles.titleSlideIn}`}
+            >
               Contact me
             </h2>
-            <p className="text-[#888888] text-base sm:text-lg">
+            <p
+              className={`text-[#888888] text-base sm:text-lg ${styles.subtitleFadeIn}`}
+            >
               Cultivating Connections: Reach Out And Connect With Me
             </p>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className={`space-y-6 ${styles.formSlideIn}`}
+          >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
+              <div className={styles.delay100}>
                 <input
                   {...register("name")}
                   type="text"
                   placeholder="Name"
-                  className="w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors"
+                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors ${styles.fieldSlideIn} ${styles.inputFocus} ${errors.name ? styles.errorShake : ""}`}
                 />
                 {errors.name && (
                   <p className="text-red-500 text-sm mt-1">
@@ -99,12 +112,12 @@ export default function Contact() {
                 )}
               </div>
 
-              <div>
+              <div className={styles.delay200}>
                 <input
                   {...register("email")}
                   type="email"
                   placeholder="Email"
-                  className="w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors"
+                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors ${styles.fieldSlideIn} ${styles.inputFocus} ${errors.email ? styles.errorShake : ""}`}
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm mt-1">
@@ -115,12 +128,12 @@ export default function Contact() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
+              <div className={styles.delay300}>
                 <input
                   {...register("phone")}
                   type="tel"
                   placeholder="Phone Number"
-                  className="w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors"
+                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors ${styles.fieldSlideIn} ${styles.inputFocus} ${errors.phone ? styles.errorShake : ""}`}
                 />
                 {errors.phone && (
                   <p className="text-red-500 text-sm mt-1">
@@ -129,10 +142,10 @@ export default function Contact() {
                 )}
               </div>
 
-              <div>
+              <div className={styles.delay400}>
                 <select
                   {...register("service")}
-                  className="w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white focus:outline-none focus:border-[#FF6B35] transition-colors appearance-none cursor-pointer"
+                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white focus:outline-none focus:border-[#FF6B35] transition-colors appearance-none cursor-pointer ${styles.fieldSlideIn} ${styles.inputFocus} ${errors.service ? styles.errorShake : ""}`}
                 >
                   <option value="" disabled className="text-[#888888]">
                     Service Of Interest
@@ -155,12 +168,12 @@ export default function Contact() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
+              <div className={styles.delay500}>
                 <input
                   {...register("timeline")}
                   type="text"
                   placeholder="Timeline"
-                  className="w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors"
+                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors ${styles.fieldSlideIn} ${styles.inputFocus} ${errors.timeline ? styles.errorShake : ""}`}
                 />
                 {errors.timeline && (
                   <p className="text-red-500 text-sm mt-1">
@@ -169,12 +182,12 @@ export default function Contact() {
                 )}
               </div>
 
-              <div>
+              <div className={styles.delay600}>
                 <textarea
                   {...register("details")}
                   placeholder="Project Details..."
                   rows={5}
-                  className="w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors resize-none"
+                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors resize-none ${styles.fieldSlideIn} ${styles.inputFocus} ${errors.details ? styles.errorShake : ""}`}
                 />
                 {errors.details && (
                   <p className="text-red-500 text-sm mt-1">
@@ -188,7 +201,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-[#2a2a2a] border border-[#666] text-[#888888] px-8 py-2.5 rounded-md font-medium transition-all duration-300 hover:border-[#FF6B35] hover:text-[#FF6B35] disabled:opacity-50 disabled:cursor-not-allowed"
+                className={`bg-[#2a2a2a] border border-[#666] text-[#888888] px-8 py-2.5 rounded-md font-medium transition-all duration-300 hover:border-[#FF6B35] hover:text-[#FF6B35] disabled:opacity-50 disabled:cursor-not-allowed ${styles.buttonHover} ${styles.buttonSlideIn} ${styles.buttonPulse} ${isSubmitting ? styles.submitButtonLoading : ""}`}
               >
                 {isSubmitting ? "Sending..." : "Send"}
               </button>

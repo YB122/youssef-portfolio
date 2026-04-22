@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { about } from "../../data/about";
 import { skills } from "../../data/skills";
+import styles from "./About.module.css";
 import {
   ReactIcon,
   NextjsIcon,
@@ -57,8 +58,10 @@ function SkillCard({ skill, isVisible }) {
   }, [isVisible, skill.percent]);
 
   return (
-    <div className="flex flex-col items-center gap-3">
-      <div className="w-24 h-24 relative">
+    <div
+      className={`flex flex-col items-center gap-3 ${styles.skillCardSlideIn} ${styles.skillCardHover}`}
+    >
+      <div className={`w-24 h-24 relative ${styles.progressRing}`}>
         <CircularProgressbar
           value={animatedValue}
           styles={buildStyles({
@@ -68,14 +71,20 @@ function SkillCard({ skill, isVisible }) {
             pathTransitionDuration: 0.1,
           })}
         />
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div
+          className={`absolute inset-0 flex items-center justify-center ${styles.skillIconBounce}`}
+        >
           <IconComponent />
         </div>
       </div>
-      <span className="text-orange-500 font-bold text-lg">
+      <span
+        className={`text-orange-500 font-bold text-lg ${styles.percentageCounter}`}
+      >
         {animatedValue}%
       </span>
-      <span className="text-[#888] text-sm">{skill.name}</span>
+      <span className={`text-[#888] text-sm ${styles.textReveal}`}>
+        {skill.name}
+      </span>
     </div>
   );
 }
@@ -101,18 +110,29 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="py-20 bg-[#1a1a1a]">
+    <section
+      id="about"
+      className={`py-20 bg-[#1a1a1a] ${styles.sectionFadeIn}`}
+    >
       <div className="max-w-7xl mx-auto px-5">
         <div className="text-center mb-12">
-          <h2 className="text-white text-3xl font-bold mb-2">
+          <h2
+            className={`text-white text-3xl font-bold mb-2 ${styles.titleFadeIn}`}
+          >
             {about.sectionTitle}
           </h2>
-          <p className="text-[#888] text-lg">{about.subtitle}</p>
+          <p className={`text-[#888] text-lg ${styles.subtitleFadeIn}`}>
+            {about.subtitle}
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div className="flex justify-center lg:justify-start">
-            <div className="relative w-full max-w-[350px] h-[450px] rounded-[40%_60%_60%_40%/60%_40%_60%_40%] overflow-hidden bg-[#2d2d2d]">
+          <div
+            className={`flex justify-center lg:justify-start ${styles.slideInLeft}`}
+          >
+            <div
+              className={`relative w-full max-w-[350px] h-[450px] rounded-[40%_60%_60%_40%/60%_40%_60%_40%] overflow-hidden bg-[#2d2d2d] ${styles.imageContainerHover} ${styles.imageSlideIn} ${styles.imageFloat}`}
+            >
               <img
                 src="/youssef1.png"
                 alt="Youssef"
@@ -121,13 +141,17 @@ export default function About() {
             </div>
           </div>
 
-          <div className="text-[#888] text-sm leading-relaxed whitespace-pre-line">
-            <p className="mb-6 text-base">{about.bio}</p>
+          <div
+            className={`text-[#888] text-sm leading-relaxed whitespace-pre-line ${styles.slideInRight} ${styles.contentFadeIn}`}
+          >
+            <p className={`mb-6 text-base ${styles.bioTextReveal}`}>
+              {about.bio}
+            </p>
 
             <a
               href={about.cvLink}
               download
-              className="inline-flex items-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-md font-medium transition-all duration-300 hover:bg-orange-600"
+              className={`inline-flex items-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-md font-medium transition-all duration-300 hover:bg-orange-600 ${styles.buttonHover} ${styles.buttonSlideIn} ${styles.buttonPulse}`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -149,10 +173,18 @@ export default function About() {
           </div>
         </div>
 
-        <div ref={callbackRef} className="mt-16 pt-10 border-t border-[#333]">
+        <div
+          ref={callbackRef}
+          className={`mt-16 pt-10 border-t border-[#333] ${styles.slideInUp}`}
+        >
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 justify-items-center">
-            {skills.map((skill) => (
-              <SkillCard key={skill.name} skill={skill} isVisible={isVisible} />
+            {skills.map((skill, index) => (
+              <div
+                key={skill.name}
+                className={styles[`delay-${(index + 1) * 100}`]}
+              >
+                <SkillCard skill={skill} isVisible={isVisible} />
+              </div>
             ))}
           </div>
         </div>
