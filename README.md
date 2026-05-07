@@ -110,10 +110,10 @@ VITE_EMAILJS_TEMPLATE_ID=your_template_id
 - **Sky Chat** - Real-time messaging with WebSocket
 - **Courses Platform** - Online courses with role-based access
 - **ATM System** - Banking backend with secure PIN auth
-- **Library Management** - Book borrowing system with JWT
 
 ### Full Stack
 
+- **Library Management System** - Complete ecosystem with Node.js/Express backend, React admin dashboard, and Next.js frontend
 - **NTI Sara7a** - NTI training program project
 - **YFF Platform** - Complete frontend/backend integration
 

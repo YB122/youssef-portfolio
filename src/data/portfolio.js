@@ -9,6 +9,7 @@ import specialDesignImg from "../assets/pic-por/special desgin.png";
 import skyChatImg from "../assets/pic-por/sky chat.png";
 import srahaImg from "../assets/pic-por/sraha full stack.png";
 import yffImg from "../assets/pic-por/yff.png";
+import libraryImg from "../assets/pic-por/library.png";
 
 export const categories = [
   { id: "all", label: "All" },
@@ -137,12 +138,12 @@ export const projects = [
   },
   {
     id: 13,
-    title: "Library Management",
-    category: "backend",
-    github: "https://github.com/YB122/Library-Management-System",
-    live: null,
-    image: "https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029_1280.jpg",
-    description: "RESTful library API with JWT auth, book search, borrowing and return system.",
+    title: "Library Management System",
+    category: "fullstack",
+    github: "https://github.com/YB122/Library",
+    live: "https://alex-library-next.vercel.app/",
+    image: libraryImg,
+    description: "Complete library ecosystem with Node.js/Express backend, React admin dashboard, and Next.js frontend featuring JWT auth, book management, and transaction system.",
   },
 
   // ── FULL STACK ─────────────────────────────────────
