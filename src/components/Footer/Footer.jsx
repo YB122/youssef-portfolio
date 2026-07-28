@@ -1,5 +1,50 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
+import {
+  ReactIcon, NextjsIcon, VueIcon, NodejsIcon, MongoIcon,
+  TailwindIcon, TypeScriptIcon, GitIcon, JavaScriptIcon,
+  CIcon, CppIcon, OopIcon, GrpcIcon, AngularIcon, RabbitMQIcon,
+  NestIcon, JavaIcon, RestApiIcon, WebSocketIcon, GraphQLIcon,
+  MysqlIcon, SqlServerIcon, PostgresIcon,
+} from "../Icons/SkillIcons";
+
+const brandColors = {
+  React: "#61DAFB", "Next.js": "#000000", "Vue.js": "#4FC08D",
+  "Node.js": "#5FA04E", MongoDB: "#47A248", Tailwind: "#06B6D4",
+  TypeScript: "#3178C6", JavaScript: "#F7DF1E", C: "#A8B9CC",
+  "C++": "#00599C", OOP: "#FF6B35", Git: "#F03C2E",
+  gRPC: "#4285F4", Angular: "#DD0031", RabbitMQ: "#FF6600",
+  Nest: "#E0234E", Java: "#007396", "REST API": "#6BA539",
+  WebSocket: "#010101", GraphQL: "#E10098",
+  MySQL: "#4479A1", "SQL Server": "#CC2927", PostgreSQL: "#4169E1",
+};
+
+const brandIcons = [
+  { name: "React", icon: ReactIcon },
+  { name: "Next.js", icon: NextjsIcon },
+  { name: "Vue.js", icon: VueIcon },
+  { name: "Node.js", icon: NodejsIcon },
+  { name: "MongoDB", icon: MongoIcon },
+  { name: "Tailwind", icon: TailwindIcon },
+  { name: "TypeScript", icon: TypeScriptIcon },
+  { name: "JavaScript", icon: JavaScriptIcon },
+  { name: "C", icon: CIcon },
+  { name: "C++", icon: CppIcon },
+  { name: "OOP", icon: OopIcon },
+  { name: "Git", icon: GitIcon },
+  { name: "gRPC", icon: GrpcIcon },
+  { name: "Angular", icon: AngularIcon },
+  { name: "RabbitMQ", icon: RabbitMQIcon },
+  { name: "Nest", icon: NestIcon },
+  { name: "Java", icon: JavaIcon },
+  { name: "REST API", icon: RestApiIcon },
+  { name: "WebSocket", icon: WebSocketIcon },
+  { name: "GraphQL", icon: GraphQLIcon },
+  { name: "MySQL", icon: MysqlIcon },
+  { name: "SQL Server", icon: SqlServerIcon },
+  { name: "PostgreSQL", icon: PostgresIcon },
+];
 
 export default function Footer() {
   const navLinks = [
@@ -34,6 +79,43 @@ export default function Footer() {
     <footer className="bg-[#0D0D0D] border-t border-[rgba(255,107,53,0.2)]">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8 py-12">
         <div className="flex flex-col items-center text-center">
+
+          {/* Marquee */}
+          <div className="w-full overflow-hidden mb-10 py-6 border-y border-[rgba(255,107,53,0.15)]">
+            <style>{`
+              .footer-marquee-track {
+                display: flex;
+                gap: 3rem;
+                align-items: center;
+                width: max-content;
+                animation: footerMarquee 20s linear infinite;
+              }
+              @keyframes footerMarquee {
+                from { transform: translateX(0); }
+                to { transform: translateX(-50%); }
+              }
+              .footer-marquee-icon svg { fill: currentColor !important; stroke: currentColor !important; }
+              .footer-marquee-icon svg path { fill: currentColor !important; stroke: currentColor !important; }
+              .footer-marquee-icon svg circle { fill: currentColor !important; stroke: currentColor !important; }
+              .footer-marquee-icon svg rect { fill: currentColor !important; stroke: currentColor !important; }
+              .footer-marquee-icon svg ellipse { fill: currentColor !important; stroke: currentColor !important; }
+              .footer-marquee-icon svg line { stroke: currentColor !important; }
+            `}</style>
+            <div className="footer-marquee-track">
+              {[...brandIcons, ...brandIcons].map((brand, i) => {
+                const Icon = brand.icon;
+                const color = brandColors[brand.name];
+                return (
+                  <div key={i} className="flex items-center gap-2 shrink-0">
+                    <span className="footer-marquee-icon" style={{ color }}>
+                      <Icon size={24} />
+                    </span>
+                    <span className="text-sm whitespace-nowrap font-medium" style={{ color }}>{brand.name}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
           <Link
             to="/"
             className="text-2xl font-bold bg-gradient-to-r from-orange-500 via-red-500 to-red-600 bg-clip-text text-transparent tracking-wide mb-8"

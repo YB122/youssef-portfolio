@@ -1,5 +1,5 @@
 import { services } from "../../data/services";
-import styles from "./Services.module.css";
+import { motion } from "motion/react";
 
 const IconFrontend = () => (
   <svg
@@ -201,54 +201,64 @@ const iconMap = {
 
 export default function Services() {
   return (
-    <section className={`py-20 bg-[#1a1a1a] ${styles.sectionFadeIn}`}>
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="py-20 bg-[#1a1a1a]"
+    >
       <div className="max-w-7xl mx-auto px-5">
         <div className="text-center mb-12">
-          <h2
-            className={`text-white text-3xl font-bold mb-4 ${styles.titleFadeIn}`}
+          <motion.h2
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.6 }}
+            className="text-white text-3xl font-bold mb-4"
           >
             Services
-          </h2>
-          <p
-            className={`text-[#888] text-sm max-w-xl mx-auto ${styles.subtitleFadeIn}`}
+          </motion.h2>
+          <motion.p
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-[#888] text-sm max-w-xl mx-auto"
           >
             I provide comprehensive web development solutions tailored to your
             needs, from building modern user interfaces to designing robust
             backend systems.
-          </p>
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const IconComponent = iconMap[service.icon];
-            const delayClass = `delay-${(index + 1) * 100}`;
             return (
-              <div
+              <motion.div
                 key={service.id}
-                className={`bg-[#2a2a2a] rounded-xl p-8 text-center ${styles.serviceCard} ${styles.slideInUp} ${styles.glowOnHover} ${styles[delayClass]}`}
+                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 40 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(255,107,0,0.3)" }}
+                className="bg-[#2a2a2a] rounded-xl p-8 text-center"
               >
                 <div className="flex justify-center mb-4">
-                  <div
-                    className={`${styles.iconContainer} ${styles.iconBounce}`}
+                  <motion.div
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ repeat: Infinity, duration: 2 }}
                   >
                     <IconComponent />
-                  </div>
+                  </motion.div>
                 </div>
-                <h3
-                  className={`text-orange-500 font-semibold mb-3 ${styles.textReveal}`}
-                >
+                <h3 className="text-orange-500 font-semibold mb-3">
                   {service.title}
                 </h3>
-                <p
-                  className={`text-[#888] text-sm leading-relaxed ${styles.textReveal}`}
-                >
+                <p className="text-[#888] text-sm leading-relaxed">
                   {service.description}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

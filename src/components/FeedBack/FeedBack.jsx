@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { motion, AnimatePresence } from "motion/react";
 import styles from "./FeedBack.module.css";
 
 const feedbackSchema = z.object({
@@ -16,7 +17,6 @@ export default function FeedBack() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [feedbacks, setFeedbacks] = useState([]);
 
-  // Load feedbacks from deployed API
   useEffect(() => {
     fetch(import.meta.env.VITE_API_URL)
       .then((res) => res.json())
@@ -25,7 +25,6 @@ export default function FeedBack() {
         const feedbackArray = Array.isArray(data)
           ? data
           : data.feedbacks || data.data || [];
-        // Filter out invalid items
         const validFeedbacks = feedbackArray.filter(
           (item) => item && item.name && item.message,
         );
@@ -58,7 +57,6 @@ export default function FeedBack() {
       });
       console.log("API response:", response);
       const responseData = response.data;
-      // Handle different API response structures
       const newFeedback =
         responseData.feedback ||
         responseData.data ||
@@ -99,40 +97,73 @@ export default function FeedBack() {
   };
 
   return (
-    <section className={styles.feedbackSection} id="feedback">
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      className={styles.feedbackSection}
+      id="feedback"
+    >
       <div className={styles.container}>
-        {/* Header */}
-        <div className={`${styles.header} ${styles.headerSlideIn}`}>
-          <h2 className={`${styles.title} ${styles.titleSlideIn}`}>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className={styles.header}
+        >
+          <motion.h2
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className={styles.title}
+          >
             What People Say
-          </h2>
-          <p className={`${styles.subtitle} ${styles.subtitleSlideIn}`}>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className={styles.subtitle}
+          >
             Feedback from clients and visitors
-          </p>
-          <button
+          </motion.p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
             onClick={() => setIsModalOpen(true)}
-            className={`${styles.addButton} ${styles.addButtonHover} ${styles.buttonSlideIn}`}
+            className={styles.addButton}
           >
             <i className="fas fa-plus"></i>
             Add Your Feedback
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
 
-        {/* Feedback List */}
-        <div className={`${styles.feedbackList} ${styles.feedbackListSlideIn}`}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className={styles.feedbackList}
+        >
           {feedbacks.length === 0 ? (
-            <div className={`${styles.emptyState} ${styles.emptyStateBounce}`}>
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+              className={styles.emptyState}
+            >
               <i className="fas fa-comments"></i>
               <p>No feedback yet. Be the first to share your thoughts!</p>
-            </div>
+            </motion.div>
           ) : (
             feedbacks.map((item, index) => (
-              <div
+              <motion.div
                 key={item.id || Math.random()}
-                className={`${styles.feedbackCard} ${styles.feedbackCardHover} ${styles.feedbackCardSlideIn} ${styles[`delay-${(index + 1) * 100}`]}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className={styles.feedbackCard}
               >
                 <div className={styles.cardHeader}>
-                  <div className={`${styles.avatar} ${styles.avatarBounce}`}>
+                  <div className={styles.avatar}>
                     {(item.name || "?").charAt(0).toUpperCase()}
                   </div>
                   <div className={styles.meta}>
@@ -141,128 +172,154 @@ export default function FeedBack() {
                       {formatDate(item.createdAt || item.date)}
                     </span>
                   </div>
-                  <div className={`${styles.stars} ${styles.starPulse}`}>
+                  <div className={styles.stars}>
                     {renderStars(item.rating || 0)}
                   </div>
                 </div>
                 <p className={styles.message}>{item.message || ""}</p>
-              </div>
+              </motion.div>
             ))
           )}
-        </div>
+        </motion.div>
 
-        {/* Modal */}
-        {isModalOpen && (
-          <div
-            className={`${styles.modalOverlay} ${styles.overlayFadeIn}`}
-            onClick={() => setIsModalOpen(false)}
-          >
-            <div
-              className={`${styles.modal} ${styles.modalSlideIn}`}
-              onClick={(e) => e.stopPropagation()}
+        <AnimatePresence>
+          {isModalOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className={styles.modalOverlay}
+              onClick={() => setIsModalOpen(false)}
             >
-              <div className={styles.modalHeader}>
-                <h3>Share Your Feedback</h3>
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className={styles.closeButton}
-                >
-                  <i className="fas fa-times"></i>
-                </button>
-              </div>
-
-              <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-                <div
-                  className={`${styles.field} ${styles.fieldSlideIn} ${styles.delay100}`}
-                >
-                  <label className={styles.label} htmlFor="name">
-                    Your Name
-                  </label>
-                  <input
-                    {...register("name")}
-                    type="text"
-                    placeholder="Enter your name"
-                    className={`${styles.input} ${styles.inputFocus}`}
-                  />
-                  {errors.name && (
-                    <p className={styles.error}>{errors.name.message}</p>
-                  )}
-                </div>
-
-                <div
-                  className={`${styles.field} ${styles.fieldSlideIn} ${styles.delay200}`}
-                >
-                  <label className={styles.label} htmlFor="rating">
-                    Rating
-                  </label>
-                  <div className={styles.starContainer}>
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <button
-                        key={star}
-                        type="button"
-                        onClick={() => {
-                          const ratingValue = star.toString();
-                          const event = {
-                            target: { value: ratingValue, name: "rating" },
-                          };
-                          register("rating").onChange(event);
-                        }}
-                        className={`${styles.starButton} ${styles.starButtonHover}`}
-                        aria-label={`${star} star${star > 1 ? "s" : ""}`}
-                      >
-                        <i
-                          className={`fas fa-star ${styles.star} ${
-                            star <= (watch("rating") || 0)
-                              ? styles.starFilled
-                              : ""
-                          }`}
-                        ></i>
-                      </button>
-                    ))}
-                  </div>
-                  <input type="hidden" {...register("rating")} />
-                  {errors.rating && (
-                    <p className={styles.error}>{errors.rating.message}</p>
-                  )}
-                </div>
-
-                <div
-                  className={`${styles.field} ${styles.fieldSlideIn} ${styles.delay300}`}
-                >
-                  <label className={styles.label} htmlFor="message">
-                    Your Message
-                  </label>
-                  <textarea
-                    {...register("message")}
-                    placeholder="Share your experience..."
-                    rows={4}
-                    className={`${styles.textarea} ${styles.inputFocus}`}
-                  />
-                  {errors.message && (
-                    <p className={styles.error}>{errors.message.message}</p>
-                  )}
-                </div>
-
-                <div className={`${styles.modalActions} ${styles.delay400}`}>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                className={styles.modal}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className={styles.modalHeader}>
+                  <h3>Share Your Feedback</h3>
                   <button
-                    type="button"
                     onClick={() => setIsModalOpen(false)}
-                    className={`${styles.cancelButton} ${styles.buttonHover}`}
+                    className={styles.closeButton}
                   >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    className={`${styles.submitButton} ${styles.buttonHover}`}
-                  >
-                    Submit Feedback
+                    <i className="fas fa-times"></i>
                   </button>
                 </div>
-              </form>
-            </div>
-          </div>
-        )}
+
+                <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
+                    className={styles.field}
+                  >
+                    <label className={styles.label} htmlFor="name">
+                      Your Name
+                    </label>
+                    <input
+                      {...register("name")}
+                      type="text"
+                      placeholder="Enter your name"
+                      className={`${styles.input} ${styles.inputFocus}`}
+                    />
+                    {errors.name && (
+                      <p className={styles.error}>{errors.name.message}</p>
+                    )}
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className={styles.field}
+                  >
+                    <label className={styles.label} htmlFor="rating">
+                      Rating
+                    </label>
+                    <div className={styles.starContainer}>
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <motion.button
+                          key={star}
+                          type="button"
+                          whileHover={{ scale: 1.2, rotate: 20 }}
+                          onClick={() => {
+                            const ratingValue = star.toString();
+                            const event = {
+                              target: { value: ratingValue, name: "rating" },
+                            };
+                            register("rating").onChange(event);
+                          }}
+                          className={styles.starButton}
+                          aria-label={`${star} star${star > 1 ? "s" : ""}`}
+                        >
+                          <i
+                            className={`fas fa-star ${styles.star} ${
+                              star <= (watch("rating") || 0)
+                                ? styles.starFilled
+                                : ""
+                            }`}
+                          ></i>
+                        </motion.button>
+                      ))}
+                    </div>
+                    <input type="hidden" {...register("rating")} />
+                    {errors.rating && (
+                      <p className={styles.error}>{errors.rating.message}</p>
+                    )}
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 }}
+                    className={styles.field}
+                  >
+                    <label className={styles.label} htmlFor="message">
+                      Your Message
+                    </label>
+                    <textarea
+                      {...register("message")}
+                      placeholder="Share your experience..."
+                      rows={4}
+                      className={`${styles.textarea} ${styles.inputFocus}`}
+                    />
+                    {errors.message && (
+                      <p className={styles.error}>{errors.message.message}</p>
+                    )}
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4 }}
+                    className={styles.modalActions}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setIsModalOpen(false)}
+                      className={`${styles.cancelButton} ${styles.buttonHover}`}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      className={`${styles.submitButton} ${styles.buttonHover}`}
+                    >
+                      Submit Feedback
+                    </button>
+                  </motion.div>
+                </form>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </section>
+    </motion.section>
   );
 }

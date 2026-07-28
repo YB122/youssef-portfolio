@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { motion } from "motion/react";
 import { about } from "../../data/about";
 import { skills } from "../../data/skills";
-import styles from "./About.module.css";
 import {
   ReactIcon,
   NextjsIcon,
@@ -80,10 +80,14 @@ function SkillCard({ skill, isVisible }) {
   }, [isVisible, skill.percent]);
 
   return (
-    <div
-      className={`flex flex-col items-center gap-3 ${styles.skillCardSlideIn} ${styles.skillCardHover}`}
+    <motion.div
+      className="flex flex-col items-center gap-3"
+      initial={{ opacity: 0, y: 30, scale: 0.8 }}
+      animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : {}}
+      transition={{ duration: 0.6 }}
+      whileHover={{ y: -5, scale: 1.05 }}
     >
-      <div className={`w-24 h-24 relative ${styles.progressRing}`}>
+      <div className="w-24 h-24 relative">
         <CircularProgressbar
           value={animatedValue}
           styles={buildStyles({
@@ -93,21 +97,31 @@ function SkillCard({ skill, isVisible }) {
             pathTransitionDuration: 0.1,
           })}
         />
-        <div
-          className={`absolute inset-0 flex items-center justify-center ${styles.skillIconBounce}`}
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center"
+          animate={{ y: [0, -8, 0, -4, 0] }}
+          transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
         >
           <IconComponent />
-        </div>
+        </motion.div>
       </div>
-      <span
-        className={`text-orange-500 font-bold text-lg ${styles.percentageCounter}`}
+      <motion.span
+        className="text-orange-500 font-bold text-lg"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
       >
         {animatedValue}%
-      </span>
-      <span className={`text-[#888] text-sm ${styles.textReveal}`}>
+      </motion.span>
+      <motion.span
+        className="text-[#888] text-sm"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         {skill.name}
-      </span>
-    </div>
+      </motion.span>
+    </motion.div>
   );
 }
 
@@ -132,48 +146,77 @@ export default function About() {
   }, []);
 
   return (
-    <section
+    <motion.section
       id="about"
-      className={`py-20 bg-[#1a1a1a] ${styles.sectionFadeIn}`}
+      className="py-20 bg-[#1a1a1a]"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
     >
       <div className="max-w-7xl mx-auto px-5">
         <div className="text-center mb-12">
-          <h2
-            className={`text-white text-3xl font-bold mb-2 ${styles.titleFadeIn}`}
+          <motion.h2
+            className="text-white text-3xl font-bold mb-2"
+            initial={{ opacity: 0, y: -30, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1 }}
           >
             {about.sectionTitle}
-          </h2>
-          <p className={`text-[#888] text-lg ${styles.subtitleFadeIn}`}>
+          </motion.h2>
+          <motion.p
+            className="text-[#888] text-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+          >
             {about.subtitle}
-          </p>
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div
-            className={`flex justify-center lg:justify-start ${styles.slideInLeft}`}
+          <motion.div
+            className="flex justify-center lg:justify-start"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <div
-              className={`relative w-full max-w-[350px] h-[450px] rounded-[40%_60%_60%_40%/60%_40%_60%_40%] overflow-hidden bg-[#2d2d2d] ${styles.imageContainerHover} ${styles.imageSlideIn} ${styles.imageFloat}`}
+            <motion.div
+              className="relative w-full max-w-[350px] h-[450px] rounded-[40%_60%_60%_40%/60%_40%_60%_40%] overflow-hidden bg-[#2d2d2d]"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              whileHover={{ scale: 1.05, rotate: 2 }}
             >
               <img
                 src="/youssef1.png"
                 alt="Youssef"
                 className="w-full h-full object-cover object-top grayscale"
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div
-            className={`text-[#888] text-sm leading-relaxed whitespace-pre-line ${styles.slideInRight} ${styles.contentFadeIn}`}
+          <motion.div
+            className="text-[#888] text-sm leading-relaxed whitespace-pre-line"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <p className={`mb-6 text-base ${styles.bioTextReveal}`}>
+            <motion.p
+              className="mb-6 text-base"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.6 }}
+            >
               {about.bio}
-            </p>
+            </motion.p>
 
-            <a
+            <motion.a
               href={about.cvLink}
               download
-              className={`inline-flex items-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-md font-medium transition-all duration-300 hover:bg-orange-600 ${styles.buttonHover} ${styles.buttonSlideIn} ${styles.buttonPulse}`}
+              className="inline-flex items-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-md font-medium transition-all duration-300 hover:bg-orange-600"
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: [1, 1.02, 1] }}
+              transition={{ duration: 1, delay: 0.8, repeat: Infinity, repeatDelay: 2 }}
+              whileHover={{ scale: 1.05 }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -191,26 +234,32 @@ export default function About() {
                 <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
               Download CV
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
         </div>
 
-        <div
+        <motion.div
           ref={callbackRef}
-          className={`mt-16 pt-10 border-t border-[#333] ${styles.slideInUp}`}
+          className="mt-16 pt-10 border-t border-[#333]"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
         >
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 justify-items-center">
             {skills.map((skill, index) => (
-              <div
+              <motion.div
                 key={skill.name}
-                className={styles[`delay-${(index + 1) * 100}`]}
+                initial={{ opacity: 0, y: 30, scale: 0.8 }}
+                animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : {}}
+                transition={{ delay: index * 0.05, duration: 0.6 }}
               >
                 <SkillCard skill={skill} isVisible={isVisible} />
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

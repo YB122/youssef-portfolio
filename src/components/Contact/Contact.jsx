@@ -5,6 +5,7 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { motion } from "motion/react";
 import styles from "./Contact.module.css";
 
 const contactSchema = z.object({
@@ -164,77 +165,117 @@ export default function Contact() {
   };
 
   return (
-    <section
-      className={`py-20 bg-[#1a1a1a] ${styles.sectionFadeIn}`}
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="py-20 bg-[#1a1a1a]"
       id="contact"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className={`rounded-lg p-6 sm:p-10 bg-[#1f1f1f] ${styles.formContainer} ${styles.gradientShift}`}
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="rounded-lg p-6 sm:p-10 bg-[#1f1f1f]"
         >
           <div className="text-center mb-10">
-            <h2
-              className={`text-3xl sm:text-4xl font-bold text-white mb-4 ${styles.titleSlideIn}`}
+            <motion.h2
+              initial={{ y: -20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-3xl sm:text-4xl font-bold text-white mb-4"
             >
               Contact me
-            </h2>
-            <p
-              className={`text-[#888888] text-base sm:text-lg ${styles.subtitleFadeIn}`}
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-[#888888] text-base sm:text-lg"
             >
               Cultivating Connections: Reach Out And Connect With Me
-            </p>
+            </motion.p>
           </div>
 
-          <form
+          <motion.form
             onSubmit={handleSubmit(onSubmit)}
-            className={`space-y-6 ${styles.formSlideIn}`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="space-y-6"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className={styles.delay100}>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0 }}
+              >
                 <input
                   {...register("name")}
                   type="text"
                   placeholder="Name"
-                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors ${styles.fieldSlideIn} ${styles.inputFocus} ${errors.name ? styles.errorShake : ""}`}
+                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors ${errors.name ? styles.errorShake : ""}`}
                 />
                 {errors.name && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors.name.message}
                   </p>
                 )}
-              </div>
+              </motion.div>
 
-              <div className={styles.delay200}>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+              >
                 <input
                   {...register("email")}
                   type="email"
                   placeholder="Email"
-                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors ${styles.fieldSlideIn} ${styles.inputFocus} ${errors.email ? styles.errorShake : ""}`}
+                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors ${errors.email ? styles.errorShake : ""}`}
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors.email.message}
                   </p>
                 )}
-              </div>
+              </motion.div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className={styles.delay300}>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+              >
                 <input
                   {...register("phone")}
                   type="tel"
                   placeholder="Phone Number"
-                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors ${styles.fieldSlideIn} ${styles.inputFocus} ${errors.phone ? styles.errorShake : ""}`}
+                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors ${errors.phone ? styles.errorShake : ""}`}
                 />
                 {errors.phone && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors.phone.message}
                   </p>
                 )}
-              </div>
+              </motion.div>
 
-              <div className={styles.delay400}>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+              >
                 <div className="relative">
                   <select
                     {...register("service")}
@@ -251,7 +292,7 @@ export default function Contact() {
                     type="button"
                     onClick={() => setIsOpen(!isOpen)}
                     onBlur={() => setTimeout(() => setIsOpen(false), 200)}
-                    className={`w-full bg-[#2a2a2a] border ${errors.service ? "border-red-500" : "border-[#333]"} rounded-md px-4 py-3 text-left focus:outline-none focus:border-[#FF6B35] transition-colors cursor-pointer flex items-center justify-between ${styles.fieldSlideIn} ${styles.inputFocus}`}
+                    className={`w-full bg-[#2a2a2a] border ${errors.service ? "border-red-500" : "border-[#333]"} rounded-md px-4 py-3 text-left focus:outline-none focus:border-[#FF6B35] transition-colors cursor-pointer flex items-center justify-between`}
                   >
                     <span className={selectedService ? "text-white" : "text-[#888888]"}>
                       {selectedService ? serviceOptions.find((o) => o.value === selectedService)?.label : "Service Of Interest"}
@@ -285,49 +326,61 @@ export default function Contact() {
                     {errors.service.message}
                   </p>
                 )}
-              </div>
+              </motion.div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className={styles.delay500}>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+              >
                 <input
                   {...register("timeline")}
                   type="text"
                   placeholder="Timeline"
-                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors ${styles.fieldSlideIn} ${styles.inputFocus} ${errors.timeline ? styles.errorShake : ""}`}
+                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors ${errors.timeline ? styles.errorShake : ""}`}
                 />
                 {errors.timeline && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors.timeline.message}
                   </p>
                 )}
-              </div>
+              </motion.div>
 
-              <div className={styles.delay600}>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+              >
                 <textarea
                   {...register("details")}
                   placeholder="Project Details..."
                   rows={5}
-                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors resize-none ${styles.fieldSlideIn} ${styles.inputFocus} ${errors.details ? styles.errorShake : ""}`}
+                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white placeholder-[#888888] focus:outline-none focus:border-[#FF6B35] transition-colors resize-none ${errors.details ? styles.errorShake : ""}`}
                 />
                 {errors.details && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors.details.message}
                   </p>
                 )}
-              </div>
+              </motion.div>
             </div>
 
             <div className="flex justify-end">
-              <button
+              <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className={`bg-[#2a2a2a] border border-[#666] text-[#888888] px-8 py-2.5 rounded-md font-medium transition-all duration-300 hover:border-[#FF6B35] hover:text-[#FF6B35] disabled:opacity-50 disabled:cursor-not-allowed ${styles.buttonHover} ${styles.buttonSlideIn} ${styles.buttonPulse} ${isSubmitting ? styles.submitButtonLoading : ""}`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`bg-[#2a2a2a] border border-[#666] text-[#888888] px-8 py-2.5 rounded-md font-medium transition-all duration-300 hover:border-[#FF6B35] hover:text-[#FF6B35] disabled:opacity-50 disabled:cursor-not-allowed ${isSubmitting ? styles.submitButtonLoading : ""}`}
               >
                 {isSubmitting ? "Sending..." : "Send"}
-              </button>
+              </motion.button>
             </div>
-          </form>
+          </motion.form>
 
           {/* Admin Toggle / Section Divider */}
           <div className="mt-12 pt-8 border-t border-[#333] text-center">
@@ -461,8 +514,8 @@ export default function Contact() {
               )}
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
