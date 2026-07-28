@@ -88,7 +88,7 @@ export default function Footer() {
                 gap: 3rem;
                 align-items: center;
                 width: max-content;
-                animation: footerMarquee 20s linear infinite;
+                animation: footerMarquee 45s linear infinite;
               }
               @keyframes footerMarquee {
                 from { transform: translateX(0); }
