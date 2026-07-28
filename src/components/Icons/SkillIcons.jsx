@@ -1,268 +1,68 @@
 // src/components/ui/ServiceIcons.jsx
-export const ReactIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-    <circle cx="12" cy="12" r="2.5" fill="#888" />
-    <ellipse
-      cx="12"
-      cy="12"
-      rx="10"
-      ry="4"
-      stroke="#888"
-      strokeWidth="1.5"
-      fill="none"
-    />
-    <ellipse
-      cx="12"
-      cy="12"
-      rx="10"
-      ry="4"
-      stroke="#888"
-      strokeWidth="1.5"
-      fill="none"
-      transform="rotate(60 12 12)"
-    />
-    <ellipse
-      cx="12"
-      cy="12"
-      rx="10"
-      ry="4"
-      stroke="#888"
-      strokeWidth="1.5"
-      fill="none"
-      transform="rotate(120 12 12)"
-    />
+import { siNestjs, siRabbitmq, siNextdotjs, siVuedotjs, siNodedotjs, siReact, siMongodb, siTailwindcss, siTypescript, siJavascript, siC, siCplusplus, siGit, siGraphql, siOpenapiinitiative, siSocketdotio, siAngular, siMysql, siPostgresql } from 'simple-icons';
+export const ReactIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siReact.path} />
   </svg>
 );
 
-export const NextjsIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-    <circle
-      cx="12"
-      cy="12"
-      r="10"
-      stroke="#888"
-      strokeWidth="1.5"
-      fill="none"
-    />
-    <path
-      d="M9 8v8l8-8v8"
-      stroke="#888"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-    />
+export const NextjsIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siNextdotjs.path} />
   </svg>
 );
 
-export const VueIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-    <path
-      d="M3 4h4l5 8 5-8h4L12 20 3 4z"
-      stroke="#888"
-      strokeWidth="1.5"
-      strokeLinejoin="round"
-      fill="none"
-    />
-    <path
-      d="M7 4l5 8 5-8"
-      stroke="#888"
-      strokeWidth="1.2"
-      strokeLinejoin="round"
-      fill="none"
-      opacity="0.5"
-    />
+export const VueIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siVuedotjs.path} />
   </svg>
 );
 
-export const NodejsIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-    <path
-      d="M12 2L3 7v10l9 5 9-5V7L12 2z"
-      stroke="#888"
-      strokeWidth="1.5"
-      strokeLinejoin="round"
-      fill="none"
-    />
-    <path
-      d="M3 7l9 5 9-5"
-      stroke="#888"
-      strokeWidth="1.5"
-      strokeLinejoin="round"
-      fill="none"
-    />
-    <line x1="12" y1="12" x2="12" y2="22" stroke="#888" strokeWidth="1.5" />
+export const NodejsIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siNodedotjs.path} />
   </svg>
 );
 
-export const MongoIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-    <path
-      d="M12 2c0 0-6 8-6 13a6 6 0 0 0 12 0C18 10 12 2 12 2z"
-      stroke="#888"
-      strokeWidth="1.5"
-      strokeLinejoin="round"
-      fill="none"
-    />
-    <line
-      x1="12"
-      y1="17"
-      x2="12"
-      y2="22"
-      stroke="#888"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-    />
+export const MongoIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siMongodb.path} />
   </svg>
 );
 
-export const TailwindIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-    <path
-      d="M6.5 9C7.5 6.5 9.5 5.5 12 6.5c1.5.6 2 1.8 3 2.5 1.2.8 2.5.5 3.5-.5C17.5 11 15.5 12 13 11c-1.5-.6-2-1.8-3-2.5C8.8 7.7 7.5 8 6.5 9z"
-      fill="#888"
-    />
-    <path
-      d="M3 14.5C4 12 6 11 8.5 12c1.5.6 2 1.8 3 2.5 1.2.8 2.5.5 3.5-.5C14 16.5 12 17.5 9.5 16.5c-1.5-.6-2-1.8-3-2.5-1.2-.8-2.5-.5-3.5.5z"
-      fill="#888"
-    />
+export const TailwindIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siTailwindcss.path} />
   </svg>
 );
 
-export const TypeScriptIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-    <rect
-      x="2"
-      y="2"
-      width="20"
-      height="20"
-      rx="3"
-      stroke="#888"
-      strokeWidth="1.5"
-      fill="none"
-    />
-    <path d="M7 10h5" stroke="#888" strokeWidth="1.8" strokeLinecap="round" />
-    <line
-      x1="9.5"
-      y1="10"
-      x2="9.5"
-      y2="16"
-      stroke="#888"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-    />
-    <path
-      d="M13.5 13.5c0-1 .8-1.5 1.5-1.5s1.5.5 1.5 1.5v1c0 1-.8 1.5-1.5 1.5s-1.5-.5-1.5-1.5v-1z"
-      stroke="#888"
-      strokeWidth="1.5"
-      fill="none"
-    />
+export const TypeScriptIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siTypescript.path} />
   </svg>
 );
 
-export const GitIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-    <circle cx="18" cy="6" r="2.2" fill="#888" />
-    <circle cx="6" cy="18" r="2.2" fill="#888" />
-    <circle cx="6" cy="8" r="2.2" fill="#888" />
-    <path d="M6 10v6" stroke="#888" strokeWidth="1.5" strokeLinecap="round" />
-    <path
-      d="M8 8h4a4 4 0 0 1 4 4v0a4 4 0 0 0 4-4"
-      stroke="#888"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      fill="none"
-    />
+export const GitIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siGit.path} />
   </svg>
 );
 
-// JS — yellow square with "JS" letters
-export const JavaScriptIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-    <rect
-      x="2"
-      y="2"
-      width="20"
-      height="20"
-      rx="3"
-      stroke="#888"
-      strokeWidth="1.5"
-      fill="none"
-    />
-    <path
-      d="M8 16c0 1.5 2.5 1.5 2.5 0v-6"
-      stroke="#888"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-    />
-    <path
-      d="M13.5 15.5c0 .8.6 1 1.2 1 .7 0 1.3-.3 1.3-1 0-.8-.8-1-1.3-1.2-.6-.2-1.2-.5-1.2-1.3 0-.7.6-1 1.2-1 .5 0 1.1.2 1.3.8"
-      stroke="#888"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-    />
+export const JavaScriptIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siJavascript.path} />
   </svg>
 );
 
-// C — bold letter C in a circle
-export const CIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-    <circle
-      cx="12"
-      cy="12"
-      r="10"
-      stroke="#888"
-      strokeWidth="1.5"
-      fill="none"
-    />
-    <path
-      d="M15 9.5A4.5 4.5 0 1 0 15 14.5"
-      stroke="#888"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      fill="none"
-    />
+export const CIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siC.path} />
   </svg>
 );
 
-// C++ — C with two plus signs
-export const CppIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
-    <circle
-      cx="12"
-      cy="12"
-      r="10"
-      stroke="#888"
-      strokeWidth="1.5"
-      fill="none"
-    />
-    {/* C arc */}
-    <path
-      d="M13 9A3.5 3.5 0 1 0 13 15"
-      stroke="#888"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      fill="none"
-    />
-    {/* first + */}
-    <line
-      x1="17"
-      y1="10"
-      x2="17"
-      y2="14"
-      stroke="#888"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-    />
-    <line
-      x1="15"
-      y1="12"
-      x2="19"
-      y2="12"
-      stroke="#888"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-    />
+export const CppIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siCplusplus.path} />
   </svg>
 );
 
@@ -342,5 +142,80 @@ export const OopIcon = () => (
       strokeWidth="1.5"
       strokeLinecap="round"
     />
+  </svg>
+);
+
+export const GrpcIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm3.3 7.3L12 12.6 8.7 9.3 7.3 10.7 12 15.4l4.7-4.7-1.4-1.4z"/>
+  </svg>
+);
+
+export const AngularIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siAngular.path} />
+  </svg>
+);
+
+export const RabbitMQIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siRabbitmq.path} />
+  </svg>
+);
+
+export const NestIcon = ({ size = 28 }) => (
+  <svg
+    role="img"
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    fill="#888"
+  >
+    <path d={siNestjs.path} />
+  </svg>
+);
+
+export const JavaIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211 0 0 .552.346 1.323.646-4.709 2.019-10.655-.117-6.945-1.149zM8.276 15.933s-1.028.761.542.925c2.032.209 3.636.226 6.413-.307 0 0 .384.389.987.602-5.695 1.666-12.044.13-7.942-1.22zM13.116 11.475c1.162 1.337-.305 2.542-.305 2.542s2.951-1.524 1.596-3.432c-1.265-1.784-2.235-2.67 3.017-5.727 0 0-8.267 2.061-4.308 6.617z"/>
+    <path d="M16.845 20.165s.679.56-.747.994c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.999.527-.115.828-.094.828-.094-.953-.671-6.156 1.317-2.643 1.887 9.58 1.553 17.462-.7 14.977-1.821zM9.292 13.21s-4.362 1.036-1.544 1.412c1.19.159 3.561.123 5.77-.062 1.806-.152 3.618-.477 3.618-.477s-.636.272-1.096.587c-4.429 1.165-12.986.623-10.522-.568 2.082-1.006 3.774-.892 3.774-.892zM17.116 14.074c4.504-2.34 2.421-4.589.968-4.287-.355.074-.514.138-.514.138s.132-.207.385-.297c2.875-1.011 5.086 1.981-1.086 3.931 0 0 .194-.174.247-.485zM12.174.002s2.247 2.247-2.129 5.702c-3.494 2.758-.797 4.332-.001 6.129-2.039-1.838-3.535-3.457-2.531-4.966 1.475-2.238 5.558-3.323 4.661-6.865z"/>
+  </svg>
+);
+
+export const RestApiIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siOpenapiinitiative.path} />
+  </svg>
+);
+
+export const WebSocketIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siSocketdotio.path} />
+  </svg>
+);
+
+export const GraphQLIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siGraphql.path} />
+  </svg>
+);
+
+export const MysqlIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siMysql.path} />
+  </svg>
+);
+
+export const SqlServerIcon = ({ size = 28 }) => (
+  <svg viewBox="0 0 24 24" fill="none" width={size} height={size}>
+    <ellipse cx="12" cy="6" rx="8" ry="3" stroke="#888" strokeWidth="1.5" fill="none"/>
+    <path d="M4 6v5c0 1.66 3.58 3 8 3s8-1.34 8-3V6" stroke="#888" strokeWidth="1.5" fill="none"/>
+    <path d="M4 11v5c0 1.66 3.58 3 8 3s8-1.34 8-3v-5" stroke="#888" strokeWidth="1.5" fill="none"/>
+  </svg>
+);
+
+export const PostgresIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siPostgresql.path} />
   </svg>
 );

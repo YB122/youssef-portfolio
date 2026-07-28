@@ -15,6 +15,17 @@ import {
   CIcon,
   CppIcon,
   OopIcon,
+  GrpcIcon,
+  AngularIcon,
+  RabbitMQIcon,
+  NestIcon,
+  JavaIcon,
+  RestApiIcon,
+  WebSocketIcon,
+  GraphQLIcon,
+  MysqlIcon,
+  SqlServerIcon,
+  PostgresIcon,
 } from "../Icons/SkillIcons";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -32,6 +43,17 @@ const iconMap = {
   c: CIcon,
   cpp: CppIcon,
   oop: OopIcon,
+  grpc: GrpcIcon,
+  angular: AngularIcon,
+  rabbitmq: RabbitMQIcon,
+  nest: NestIcon,
+  java: JavaIcon,
+  rest: RestApiIcon,
+  websocket: WebSocketIcon,
+  graphql: GraphQLIcon,
+  mysql: MysqlIcon,
+  sqlserver: SqlServerIcon,
+  postgres: PostgresIcon,
 };
 
 function SkillCard({ skill, isVisible }) {
