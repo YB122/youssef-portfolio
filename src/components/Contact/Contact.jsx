@@ -20,6 +20,15 @@ const API_BASE_URL = import.meta.env.VITE_API_URL
   ? import.meta.env.VITE_API_URL.replace(/\/feedback\/?$/, "")
   : "http://localhost:3000";
 
+const serviceOptions = [
+  { value: "fullstack-web", label: "Full Stack Web Development" },
+  { value: "frontend", label: "Frontend Development" },
+  { value: "backend", label: "Backend Development" },
+  { value: "api-development", label: "API Development" },
+  { value: "database", label: "Database Design" },
+  { value: "other", label: "Other" },
+];
+
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showAdminPortal, setShowAdminPortal] = useState(false);
@@ -28,12 +37,15 @@ export default function Contact() {
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const [messages, setMessages] = useState([]);
   const [isLoadingMessages, setIsLoadingMessages] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
   } = useForm({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -223,22 +235,51 @@ export default function Contact() {
               </div>
 
               <div className={styles.delay400}>
-                <select
-                  {...register("service")}
-                  className={`w-full bg-[#2a2a2a] border border-[#333] rounded-md px-4 py-3 text-white focus:outline-none focus:border-[#FF6B35] transition-colors appearance-none cursor-pointer ${styles.fieldSlideIn} ${styles.inputFocus} ${errors.service ? styles.errorShake : ""}`}
-                >
-                  <option value="" disabled className="text-[#888888]">
-                    Service Of Interest
-                  </option>
-                  <option value="fullstack-web">
-                    Full Stack Web Development
-                  </option>
-                  <option value="frontend">Frontend Development</option>
-                  <option value="backend">Backend Development</option>
-                  <option value="api-development">API Development</option>
-                  <option value="database">Database Design</option>
-                  <option value="other">Other</option>
-                </select>
+                <div className="relative">
+                  <select
+                    {...register("service")}
+                    className="sr-only"
+                    value={selectedService}
+                    onChange={(e) => setSelectedService(e.target.value)}
+                  >
+                    <option value="" disabled></option>
+                    {serviceOptions.map((opt) => (
+                      <option key={opt.value} value={opt.value}></option>
+                    ))}
+                  </select>
+                  <button
+                    type="button"
+                    onClick={() => setIsOpen(!isOpen)}
+                    onBlur={() => setTimeout(() => setIsOpen(false), 200)}
+                    className={`w-full bg-[#2a2a2a] border ${errors.service ? "border-red-500" : "border-[#333]"} rounded-md px-4 py-3 text-left focus:outline-none focus:border-[#FF6B35] transition-colors cursor-pointer flex items-center justify-between ${styles.fieldSlideIn} ${styles.inputFocus}`}
+                  >
+                    <span className={selectedService ? "text-white" : "text-[#888888]"}>
+                      {selectedService ? serviceOptions.find((o) => o.value === selectedService)?.label : "Service Of Interest"}
+                    </span>
+                    <svg className={`w-4 h-4 text-[#888] transition-transform ${isOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {isOpen && (
+                    <div className="absolute z-10 w-full mt-1 bg-[#2a2a2a] border border-[#444] rounded-md shadow-lg overflow-hidden">
+                      {serviceOptions.map((opt) => (
+                        <button
+                          key={opt.value}
+                          type="button"
+                          onMouseDown={(e) => {
+                            e.preventDefault();
+                            setSelectedService(opt.value);
+                            setValue("service", opt.value, { shouldValidate: true });
+                            setIsOpen(false);
+                          }}
+                          className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${selectedService === opt.value ? "bg-[#FF6B35] text-white" : "text-[#ccc] hover:bg-[#FF6B35] hover:text-white"}`}
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
                 {errors.service && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors.service.message}
