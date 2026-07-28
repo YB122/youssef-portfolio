@@ -318,7 +318,7 @@ export default function Contact() {
                 <input
                   type="email"
                   required
-                  placeholder="Admin Email (e.g. youssef@nti.com)"
+                  placeholder="Admin Email"
                   value={adminEmail}
                   onChange={(e) => setAdminEmail(e.target.value)}
                   className="w-full bg-[#1a1a1a] border border-[#333] rounded-md px-4 py-2.5 text-white placeholder-[#777] focus:outline-none focus:border-[#FF6B35] transition-colors"
