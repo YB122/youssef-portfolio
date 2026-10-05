@@ -26,4 +26,5 @@ export const skills = [
   { name: "Java Spring Boot", percent: 95, iconKey: "springboot" },
   { name: "Python", percent: 90, iconKey: "python" },
   { name: "Django", percent: 85, iconKey: "django" },
+  { name: "Docker", percent: 90, iconKey: "docker" },
 ];

@@ -1,5 +1,5 @@
 // src/components/ui/ServiceIcons.jsx
-import { siNestjs, siRabbitmq, siNextdotjs, siVuedotjs, siNodedotjs, siReact, siMongodb, siTailwindcss, siTypescript, siJavascript, siC, siCplusplus, siGit, siGraphql, siOpenapiinitiative, siSocketdotio, siAngular, siMysql, siPostgresql, siSpringboot, siPython, siDjango } from 'simple-icons';
+import { siNestjs, siRabbitmq, siNextdotjs, siVuedotjs, siNodedotjs, siReact, siMongodb, siTailwindcss, siTypescript, siJavascript, siC, siCplusplus, siGit, siGraphql, siOpenapiinitiative, siSocketdotio, siAngular, siMysql, siPostgresql, siSpringboot, siPython, siDjango, siDocker } from 'simple-icons';
 export const ReactIcon = ({ size = 28 }) => (
   <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
     <path d={siReact.path} />
@@ -243,5 +243,11 @@ export const PythonIcon = ({ size = 28 }) => (
 export const DjangoIcon = ({ size = 28 }) => (
   <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
     <path d={siDjango.path} />
+  </svg>
+);
+
+export const DockerIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siDocker.path} />
   </svg>
 );

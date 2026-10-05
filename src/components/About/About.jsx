@@ -30,6 +30,7 @@ import {
   SpringBootIcon,
   PythonIcon,
   DjangoIcon,
+  DockerIcon,
 } from "../Icons/SkillIcons";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -62,6 +63,7 @@ const iconMap = {
   springboot: SpringBootIcon,
   python: PythonIcon,
   django: DjangoIcon,
+  docker: DockerIcon,
 };
 
 function SkillCard({ skill, isVisible }) {
