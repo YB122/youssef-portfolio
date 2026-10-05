@@ -13,9 +13,7 @@ import libraryImg from "../assets/pic-por/library.png";
 
 export const categories = [
   { id: "all", label: "All" },
-  { id: "react", label: "React" },
-  { id: "vuejs", label: "Vue.js" },
-  { id: "vanillajs", label: "Vanilla JS" },
+  { id: "frontend", label: "Frontend" },
   { id: "backend", label: "Backend" },
   { id: "fullstack", label: "Full Stack" },
 ];
@@ -25,7 +23,7 @@ export const projects = [
   {
     id: 1,
     title: "Admin Dashboard",
-    category: "react",
+    category: "frontend",
     github: "https://github.com/YB122/admin-dashboard",
     live: "https://admin-dashboard-rust-chi-84.vercel.app/",
     image: adminDashboardImg,
@@ -35,7 +33,7 @@ export const projects = [
   {
     id: 2,
     title: "Todo App React",
-    category: "react",
+    category: "frontend",
     github: "https://github.com/YB122/Todo-App-React",
     live: "https://todoappreactnti.vercel.app/",
     image: reactTodoImg,
@@ -47,7 +45,7 @@ export const projects = [
   {
     id: 3,
     title: "Todo App Vue",
-    category: "vuejs",
+    category: "frontend",
     github: "https://github.com/YB122/todo-app",
     live: "https://todo-app-bice-eight-53.vercel.app/",
     image: vueTodoImg,
@@ -59,7 +57,7 @@ export const projects = [
   {
     id: 4,
     title: "Clinic Website",
-    category: "vanillajs",
+    category: "frontend",
     github: "https://github.com/YB122/clinic",
     live: "https://clinic-indol.vercel.app/",
     image: clinicImg,
@@ -69,7 +67,7 @@ export const projects = [
   {
     id: 5,
     title: "Movie Cruds",
-    category: "vanillajs",
+    category: "frontend",
     github: "https://github.com/YB122/Movie-Cruds",
     live: "https://yb122.github.io/Movie-Cruds/",
     image: movieCrudsImg,
@@ -79,7 +77,7 @@ export const projects = [
   {
     id: 6,
     title: "Guess The Word",
-    category: "vanillajs",
+    category: "frontend",
     github: "https://github.com/YB122/guess-the-word-game",
     live: "https://yb122.github.io/guess-the-word-game/",
     image: guessTheWordImg,
@@ -89,7 +87,7 @@ export const projects = [
   {
     id: 7,
     title: "Bondi Agency",
-    category: "vanillajs",
+    category: "frontend",
     github: "https://github.com/YB122/Bondi",
     live: "https://yb122.github.io/Bondi/",
     image: bondiImg,
@@ -99,7 +97,7 @@ export const projects = [
   {
     id: 8,
     title: "Special Design",
-    category: "vanillajs",
+    category: "frontend",
     github: "https://github.com/YB122/Special-Design",
     live: "https://yb122.github.io/Special-Design/",
     image: specialDesignImg,
