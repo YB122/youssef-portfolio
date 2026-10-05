@@ -30,6 +30,7 @@ export const projects = [
     live: "https://admin-dashboard-rust-chi-84.vercel.app/",
     image: adminDashboardImg,
     description: "E-commerce admin dashboard with React 19, CRUD operations, dark/light mode.",
+    tech: ["React 19", "Vite", "Tailwind CSS"],
   },
   {
     id: 2,
@@ -39,6 +40,7 @@ export const projects = [
     live: "https://todoappreactnti.vercel.app/",
     image: reactTodoImg,
     description: "Task management with JWT auth, Zod validation, and REST API integration.",
+    tech: ["React 19", "Vite", "TanStack Query", "Tailwind CSS"],
   },
 
   // ── VUE ────────────────────────────────────────────
@@ -50,6 +52,7 @@ export const projects = [
     live: "https://todo-app-bice-eight-53.vercel.app/",
     image: vueTodoImg,
     description: "Clean Todo app built with Vue.js featuring state management and CRUD.",
+    tech: ["Vue 3", "Vue CLI", "Bootstrap 5"],
   },
 
   // ── VANILLA JS ─────────────────────────────────────
@@ -61,6 +64,7 @@ export const projects = [
     live: "https://clinic-indol.vercel.app/",
     image: clinicImg,
     description: "Healthcare clinic website with glassmorphism UI and CSS3 animations.",
+    tech: ["HTML5", "CSS3", "JavaScript"],
   },
   {
     id: 5,
@@ -70,6 +74,7 @@ export const projects = [
     live: "https://yb122.github.io/Movie-Cruds/",
     image: movieCrudsImg,
     description: "Movies management system with CRUD, real-time search, and LocalStorage.",
+    tech: ["JavaScript", "HTML5", "CSS3", "LocalStorage"],
   },
   {
     id: 6,
@@ -79,6 +84,7 @@ export const projects = [
     live: "https://yb122.github.io/guess-the-word-game/",
     image: guessTheWordImg,
     description: "Word guessing game with hints system and interactive user feedback.",
+    tech: ["JavaScript", "HTML5", "CSS3"],
   },
   {
     id: 7,
@@ -88,6 +94,7 @@ export const projects = [
     live: "https://yb122.github.io/Bondi/",
     image: bondiImg,
     description: "Fully responsive creative agency website built with Bootstrap 5.",
+    tech: ["Bootstrap 5", "HTML5", "CSS3", "JavaScript"],
   },
   {
     id: 8,
@@ -97,6 +104,7 @@ export const projects = [
     live: "https://yb122.github.io/Special-Design/",
     image: specialDesignImg,
     description: "Creative front-end design template with advanced CSS techniques.",
+    tech: ["HTML5", "CSS3", "JavaScript"],
   },
 
   // ── BACKEND ────────────────────────────────────────
@@ -108,6 +116,7 @@ export const projects = [
     live: null,
     image: skyChatImg,
     description: "Real-time messaging system backend with WebSocket communication.",
+    tech: ["Express 5", "Socket.IO", "MongoDB", "JWT"],
   },
   {
     id: 11,
@@ -117,6 +126,7 @@ export const projects = [
     live: null,
     image: "https://images.pexels.com/photos/414630/pexels-photo-414630.jpeg?auto=compress&cs=tinysrgb&w=800",
     description: "RESTful API for online courses platform with role-based access control.",
+    tech: ["Express 5", "MongoDB", "JWT", "Joi"],
   },
   {
     id: 12,
@@ -126,6 +136,7 @@ export const projects = [
     live: null,
     image: "https://images.pexels.com/photos/259200/pexels-photo-259200.jpeg?auto=compress&cs=tinysrgb&w=800",
     description: "Banking ATM backend with secure PIN auth and real-time transaction processing.",
+    tech: ["Express 5", "MongoDB", "MySQL"],
   },
   {
     id: 13,
@@ -135,6 +146,7 @@ export const projects = [
     live: "https://alex-library-next.vercel.app/",
     image: libraryImg,
     description: "Complete library ecosystem with Node.js/Express backend, React admin dashboard, and Next.js frontend featuring JWT auth, book management, and transaction system.",
+    tech: ["Express 5", "MongoDB", "React", "Next.js"],
   },
 
   // ── FULL STACK ─────────────────────────────────────
@@ -146,6 +158,7 @@ export const projects = [
     live: null,
     image: srahaImg,
     description: "Full stack application built during NTI intensive training program.",
+    tech: ["Express 5", "MongoDB", "JWT"],
   },
   {
     id: 15,
@@ -155,6 +168,7 @@ export const projects = [
     live: "https://yff-delta.vercel.app/",
     image: yffImg,
     description: "Full stack web platform with complete frontend and backend integration.",
+    tech: ["React 19", "Vite", "Tailwind CSS", "i18next"],
   },
   {
     id: 16,
@@ -167,6 +181,7 @@ export const projects = [
       "https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=800",
     description:
       "Full-stack clinic booking platform with Next.js 16 + NestJS, JWT auth, role-based dashboards, real-time chat, and conflict-free appointments.",
+    tech: ["Next.js 16", "NestJS", "MongoDB", "Socket.IO"],
   },
   {
     id: 17,
@@ -178,5 +193,6 @@ export const projects = [
       "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=800",
     description:
       "Production-grade full-stack e-commerce with Express 5 API, React-Admin dashboard, and Next.js 16 storefront — trilingual, Stripe/PayPal, Redis cache.",
+    tech: ["Express 5", "Next.js 16", "React-Admin", "MongoDB", "Stripe"],
   },
 ];

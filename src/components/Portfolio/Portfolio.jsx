@@ -106,9 +106,30 @@ const Portfolio = () => {
                   </h3>
 
                   {/* Category */}
-                  <p className="text-gray-400 text-sm mb-3">
+                  <p className="text-gray-400 text-sm mb-2">
                     {categories.find((cat) => cat.id === project.category)?.label}
                   </p>
+
+                  {/* Description */}
+                  {project.description && (
+                    <p className="text-gray-300 text-sm mb-3 line-clamp-3">
+                      {project.description}
+                    </p>
+                  )}
+
+                  {/* Tech stack */}
+                  {project.tech && project.tech.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {project.tech.map((item) => (
+                        <span
+                          key={item}
+                          className="px-2.5 py-1 text-xs font-medium bg-orange-500/10 text-orange-300 border border-orange-500/20 rounded-full"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  )}
 
                   {/* Source Code Button */}
                   <div className="flex flex-wrap gap-2">
