@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const typewriterLines = [
   { text: "Hi I am", className: "text-[#888] text-lg m-0" },
   { text: "Youssef Benyamine", className: "text-white text-2xl font-semibold m-0" },
-  { text: "Full Stack Developer", className: "text-4xl lg:text-5xl font-bold m-0 leading-tight bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent" },
+  { text: "Software Engineer", className: "text-4xl lg:text-5xl font-bold m-0 leading-tight bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent" },
 ];
 
 function TypewriterText() {
