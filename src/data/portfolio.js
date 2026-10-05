@@ -101,15 +101,6 @@ export const projects = [
 
   // ── BACKEND ────────────────────────────────────────
   {
-    id: 9,
-    title: "E-Commerce Backend",
-    category: "backend",
-    github: "https://github.com/YB122/e-commerce-back-end",
-    live: null,
-    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=800",
-    description: "Scalable e-commerce REST API with auth, products, orders, and payments.",
-  },
-  {
     id: 10,
     title: "Sky Chat",
     category: "backend",
@@ -176,5 +167,16 @@ export const projects = [
       "https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=800",
     description:
       "Full-stack clinic booking platform with Next.js 16 + NestJS, JWT auth, role-based dashboards, real-time chat, and conflict-free appointments.",
+  },
+  {
+    id: 17,
+    title: "Ecommerce Platform",
+    category: "fullstack",
+    github: "https://github.com/YB122/Ecommerce",
+    live: null,
+    image:
+      "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=800",
+    description:
+      "Production-grade full-stack e-commerce with Express 5 API, React-Admin dashboard, and Next.js 16 storefront — trilingual, Stripe/PayPal, Redis cache.",
   },
 ];
