@@ -165,4 +165,16 @@ export const projects = [
     image: yffImg,
     description: "Full stack web platform with complete frontend and backend integration.",
   },
+  {
+    id: 16,
+    title: "MedFlow Clinic Platform",
+    category: "fullstack",
+    github: "https://github.com/YB122/medflow-frontend",
+    githubBackend: "https://github.com/YB122/medflow-backend",
+    live: "https://medflow-front-end.vercel.app/en",
+    image:
+      "https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=800",
+    description:
+      "Full-stack clinic booking platform with Next.js 16 + NestJS, JWT auth, role-based dashboards, real-time chat, and conflict-free appointments.",
+  },
 ];
