@@ -22,4 +22,8 @@ export const skills = [
   { name: "MySQL", percent: 80, iconKey: "mysql" },
   { name: "SQL Server", percent: 85, iconKey: "sqlserver" },
   { name: "PostgreSQL", percent: 80, iconKey: "postgres" },
+  { name: "Oracle", percent: 90, iconKey: "oracle" },
+  { name: "Java Spring Boot", percent: 95, iconKey: "springboot" },
+  { name: "Python", percent: 90, iconKey: "python" },
+  { name: "Django", percent: 85, iconKey: "django" },
 ];

@@ -1,5 +1,5 @@
 // src/components/ui/ServiceIcons.jsx
-import { siNestjs, siRabbitmq, siNextdotjs, siVuedotjs, siNodedotjs, siReact, siMongodb, siTailwindcss, siTypescript, siJavascript, siC, siCplusplus, siGit, siGraphql, siOpenapiinitiative, siSocketdotio, siAngular, siMysql, siPostgresql } from 'simple-icons';
+import { siNestjs, siRabbitmq, siNextdotjs, siVuedotjs, siNodedotjs, siReact, siMongodb, siTailwindcss, siTypescript, siJavascript, siC, siCplusplus, siGit, siGraphql, siOpenapiinitiative, siSocketdotio, siAngular, siMysql, siPostgresql, siSpringboot, siPython, siDjango } from 'simple-icons';
 export const ReactIcon = ({ size = 28 }) => (
   <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
     <path d={siReact.path} />
@@ -217,5 +217,31 @@ export const SqlServerIcon = ({ size = 28 }) => (
 export const PostgresIcon = ({ size = 28 }) => (
   <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
     <path d={siPostgresql.path} />
+  </svg>
+);
+
+export const OracleIcon = ({ size = 28 }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} fill="none">
+    <ellipse cx="12" cy="5" rx="8" ry="3" stroke="#888" strokeWidth="1.6" />
+    <path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5" stroke="#888" strokeWidth="1.6" />
+    <text x="12" y="16.5" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#888" fontFamily="Arial, sans-serif">O</text>
+  </svg>
+);
+
+export const SpringBootIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siSpringboot.path} />
+  </svg>
+);
+
+export const PythonIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siPython.path} />
+  </svg>
+);
+
+export const DjangoIcon = ({ size = 28 }) => (
+  <svg role="img" viewBox="0 0 24 24" width={size} height={size} fill="#888">
+    <path d={siDjango.path} />
   </svg>
 );

@@ -26,6 +26,10 @@ import {
   MysqlIcon,
   SqlServerIcon,
   PostgresIcon,
+  OracleIcon,
+  SpringBootIcon,
+  PythonIcon,
+  DjangoIcon,
 } from "../Icons/SkillIcons";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -54,6 +58,10 @@ const iconMap = {
   mysql: MysqlIcon,
   sqlserver: SqlServerIcon,
   postgres: PostgresIcon,
+  oracle: OracleIcon,
+  springboot: SpringBootIcon,
+  python: PythonIcon,
+  django: DjangoIcon,
 };
 
 function SkillCard({ skill, isVisible }) {
